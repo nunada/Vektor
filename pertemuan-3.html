@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pertemuan 3 · Sudut, Luas &amp; Volume Vektor · Matematika I</title>
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">∑</span>
+      <span>Matematika I<br><small>S1 TEKNIK SIPIL — UNESA</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="pertemuan-2.html">Pertemuan 2</a>
+      <a href="pertemuan-3.html" class="current">Pertemuan 3</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="title-block">
+    <div class="title-block-grid">
+      <div class="tb-cell"><div class="tb-label">Pertemuan</div><div class="tb-value accent">Minggu ke-3</div></div>
+      <div class="tb-cell"><div class="tb-label">Alokasi Waktu</div><div class="tb-value">3 × 50 menit</div></div>
+      <div class="tb-cell"><div class="tb-label">Metode</div><div class="tb-value">Berbasis masalah &amp; diskusi</div></div>
+      <div class="tb-cell"><div class="tb-label">Bobot Nilai</div><div class="tb-value">2%</div></div>
+    </div>
+  </div>
+
+  <section class="hero" style="padding-top:44px;">
+    <div class="eyebrow">Lembar Materi 03</div>
+    <h1 class="display">Sudut, <em>Luas</em> &amp; <em>Volume</em> dari Vektor</h1>
+    <p class="lede">
+      Dengan dua vektor kita bisa menentukan sudut antar batang dan mengecek tegak-lurusan sambungan.
+      Dengan hasil kali silang kita bisa menghitung luas bidang dan momen gaya. Dengan tiga vektor kita
+      bisa menghitung volume elemen struktur. Semua berasal dari dua operasi: hasil kali titik dan
+      hasil kali silang.
+    </p>
+    <div class="week-strip">
+      <span class="week-pill"><a style="text-decoration:none;color:inherit" href="pertemuan-2.html">← 2 · Definisi &amp; aljabar</a></span>
+      <span class="week-pill active">3 · Sudut, luas &amp; volume</span>
+    </div>
+  </section>
+
+  <div class="box def">
+    <div class="box-title">Sub-CPMK</div>
+    <p>Mampu memahami definisi vektor dan relasi serta operasi aljabar vektor, dan mampu menghitung sudut
+      yang dibentuk dua vektor, menghitung luas jajar genjang, serta menghitung volume paralelepipedum.</p>
+  </div>
+
+  <!-- ===================== 1. DOT PRODUCT ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§1</span>
+      <h2 class="display">Hasil Kali Titik &amp; Sudut Antar Vektor</h2>
+    </div>
+
+    <div class="box def">
+      <div class="box-title">Definisi — Hasil Kali Titik (Dot Product)</div>
+      <p>Untuk \(\mathbf{u}=(u_1,u_2,u_3)\) dan \(\mathbf{v}=(v_1,v_2,v_3)\), hasil kali titik didefinisikan
+        secara aljabar dan secara geometris:</p>
+      <div class="formula-display">
+        \[ \mathbf{u}\cdot\mathbf{v} = u_1v_1+u_2v_2+u_3v_3 \;=\; |\mathbf{u}|\,|\mathbf{v}|\cos\theta \]
+      </div>
+      <p style="margin-top:10px">dengan \(\theta\) adalah sudut antara \(\mathbf{u}\) dan \(\mathbf{v}\)
+        (\(0^\circ \le \theta \le 180^\circ\)). Hasilnya berupa <strong>skalar</strong>, bukan vektor.</p>
+    </div>
+
+    <h3 class="sub">Menentukan sudut antar dua vektor</h3>
+    <p>Menyusun ulang definisi geometris di atas memberi rumus sudut:</p>
+    <div class="box formula">
+      <div class="box-title">Sudut antar vektor</div>
+      <div class="formula-display">\[ \cos\theta = \dfrac{\mathbf{u}\cdot\mathbf{v}}{|\mathbf{u}|\,|\mathbf{v}|} \]</div>
+    </div>
+    <p>Kasus khusus yang sangat sering dipakai untuk mengecek kondisi sambungan atau tumpuan:</p>
+    <div class="box formula">
+      <div class="box-title">Tegak lurus (ortogonal)</div>
+      <div class="formula-display">\[ \mathbf{u}\perp\mathbf{v} \iff \mathbf{u}\cdot\mathbf{v}=0 \quad (\mathbf{u},\mathbf{v}\neq \mathbf{0}) \]</div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-head">
+        <span class="widget-title">Widget · Sudut &amp; Hasil Kali Titik</span>
+        <span class="widget-hint">geser θ</span>
+      </div>
+      <div class="widget-body">
+        <div id="w-dot"></div>
+        <div>
+          <div class="slider-row">
+            <label><span>θ</span><span id="dot-theta-val">60°</span></label>
+            <input type="range" id="dot-theta" min="0" max="180" step="1" value="60">
+          </div>
+          <div class="readout">
+            <div><span class="k">u·v</span><span class="v" id="dot-value"></span></div>
+            <div><span class="k">relasi</span><span class="v" id="dot-relation"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h3 class="sub">Proyeksi vektor</h3>
+    <p>Proyeksi berguna misalnya untuk mencari komponen gaya searah sumbu batang:</p>
+    <div class="box formula">
+      <div class="box-title">Proyeksi skalar &amp; vektor u pada v</div>
+      <div class="formula-display">
+        \[ \text{comp}_{\mathbf{v}}\,\mathbf{u} = \dfrac{\mathbf{u}\cdot\mathbf{v}}{|\mathbf{v}|}
+        \qquad\qquad
+        \text{proj}_{\mathbf{v}}\,\mathbf{u} = \dfrac{\mathbf{u}\cdot\mathbf{v}}{|\mathbf{v}|^2}\,\mathbf{v} \]
+      </div>
+    </div>
+
+    <div class="box example">
+      <div class="box-title">Contoh — Mengecek ortogonalitas &amp; sudut</div>
+      <p>Diberikan \(\mathbf{u}=(1,2,2)\) dan \(\mathbf{v}=(2,-2,1)\) yang mewakili arah dua batang penopang.</p>
+      <div class="steps">
+        <div class="step">\(\mathbf{u}\cdot\mathbf{v} = 1(2)+2(-2)+2(1) = 2-4+2 = 0\).</div>
+        <div class="step">Karena hasil kali titik nol, kedua batang <strong>tegak lurus</strong> (\(\theta=90^\circ\)).</div>
+      </div>
+      <p style="margin-top:14px">Bandingkan dengan \(\mathbf{u}=(3,4,0)\) dan \(\mathbf{v}=(4,3,0)\):</p>
+      <div class="steps">
+        <div class="step">\(\mathbf{u}\cdot\mathbf{v} = 12+12+0 = 24\); \(|\mathbf{u}|=|\mathbf{v}|=5\).</div>
+        <div class="step">\(\cos\theta = 24/25 = 0{,}96 \Rightarrow \theta = \arccos(0{,}96) \approx 16{,}26^\circ\).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 2. CROSS PRODUCT ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§2</span>
+      <h2 class="display">Hasil Kali Silang &amp; Luas Jajar Genjang</h2>
+    </div>
+
+    <div class="box def">
+      <div class="box-title">Definisi — Hasil Kali Silang (Cross Product), hanya di R³</div>
+      <p>Untuk \(\mathbf{u}=(u_1,u_2,u_3)\) dan \(\mathbf{v}=(v_1,v_2,v_3)\):</p>
+      <div class="formula-display">
+        \[ \mathbf{u}\times\mathbf{v} =
+        \begin{vmatrix} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \end{vmatrix}
+        = (u_2v_3-u_3v_2)\,\mathbf{i} - (u_1v_3-u_3v_1)\,\mathbf{j} + (u_1v_2-u_2v_1)\,\mathbf{k} \]
+      </div>
+      <p style="margin-top:10px">Hasilnya berupa <strong>vektor baru</strong> yang tegak lurus terhadap
+        bidang yang dibentuk \(\mathbf{u}\) dan \(\mathbf{v}\), arahnya mengikuti kaidah tangan kanan, dan
+        besarnya \(|\mathbf{u}\times\mathbf{v}| = |\mathbf{u}||\mathbf{v}|\sin\theta\).</p>
+    </div>
+
+    <table class="data">
+      <thead><tr><th>Sifat</th><th>Keterangan</th></tr></thead>
+      <tbody>
+        <tr><td>Anti-komutatif</td><td>\(\mathbf{u}\times\mathbf{v} = -(\mathbf{v}\times\mathbf{u})\)</td></tr>
+        <tr><td>Tidak asosiatif</td><td>\((\mathbf{u}\times\mathbf{v})\times\mathbf{w} \neq \mathbf{u}\times(\mathbf{v}\times\mathbf{w})\) secara umum</td></tr>
+        <tr><td>Vektor sejajar</td><td>\(\mathbf{u}\times\mathbf{v}=\mathbf{0} \iff \mathbf{u}\parallel\mathbf{v}\)</td></tr>
+        <tr><td>Distributif</td><td>\(\mathbf{u}\times(\mathbf{v}+\mathbf{w}) = \mathbf{u}\times\mathbf{v} + \mathbf{u}\times\mathbf{w}\)</td></tr>
+      </tbody>
+    </table>
+
+    <h3 class="sub">Aplikasi: luas jajar genjang &amp; segitiga</h3>
+    <p>Besar hasil kali silang tepat sama dengan luas jajar genjang yang direntangkan oleh kedua vektor —
+      berguna untuk menghitung luas bidang miring atau pelat dari titik-titik sudutnya.</p>
+    <div class="box formula">
+      <div class="box-title">Luas</div>
+      <div class="formula-display">
+        \[ \text{Luas jajar genjang} = |\mathbf{u}\times\mathbf{v}|
+        \qquad\qquad
+        \text{Luas segitiga} = \tfrac{1}{2}|\mathbf{u}\times\mathbf{v}| \]
+      </div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-head">
+        <span class="widget-title">Widget · Luas dari Hasil Kali Silang (2D)</span>
+        <span class="widget-hint">seret ujung a atau b</span>
+      </div>
+      <div class="widget-body">
+        <div id="w-cross"></div>
+        <div class="readout">
+          <div><span class="k">(a×b)ᵤ komponen-z</span><span class="v" id="cross-z"></span></div>
+          <div><span class="k">Luas = |a×b|</span><span class="v" id="cross-area"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box example">
+      <div class="box-title">Contoh 1 — Momen gaya (torsi)</div>
+      <p>Gaya \(\mathbf{F}=(0,-50,0)\) N bekerja di ujung balok pada posisi \(\mathbf{r}=(4,0,0)\) m
+        relatif terhadap tumpuan. Momen terhadap tumpuan adalah \(\mathbf{M}=\mathbf{r}\times\mathbf{F}\).</p>
+      <div class="steps">
+        <div class="step">Komponen-x: \(0(0)-0(-50)=0\).</div>
+        <div class="step">Komponen-y: \(0(0)-4(0)=0\).</div>
+        <div class="step">Komponen-z: \(4(-50)-0(0)=-200\).</div>
+        <div class="step">\(\mathbf{M} = (0,0,-200)\) N·m, besar momen \(200\) N·m.</div>
+      </div>
+    </div>
+
+    <div class="box example">
+      <div class="box-title">Contoh 2 — Luas jajar genjang</div>
+      <p>Tentukan luas jajar genjang yang dibentuk oleh \(\mathbf{a}=(2,0,1)\) dan \(\mathbf{b}=(0,3,1)\).</p>
+      <div class="steps">
+        <div class="step">\(\mathbf{a}\times\mathbf{b} = (0\cdot1-1\cdot3,\ 1\cdot0-2\cdot1,\ 2\cdot3-0\cdot0) = (-3,-2,6)\).</div>
+        <div class="step">\(|\mathbf{a}\times\mathbf{b}| = \sqrt{(-3)^2+(-2)^2+6^2} = \sqrt{49} = 7\).</div>
+        <div class="step">Luas jajar genjang \(= 7\) satuan luas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. TRIPLE PRODUCT ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§3</span>
+      <h2 class="display">Hasil Kali Tripel Skalar &amp; Volume Paralelepipedum</h2>
+    </div>
+
+    <div class="box def">
+      <div class="box-title">Definisi — Hasil Kali Tripel Skalar</div>
+      <p>Untuk tiga vektor \(\mathbf{u}, \mathbf{v}, \mathbf{w}\) di \(\mathbb{R}^3\) yang merepresentasikan
+        tiga rusuk yang bertemu di satu titik sudut (misalnya rusuk sebuah elemen pondasi):</p>
+      <div class="formula-display">
+        \[ \mathbf{u}\cdot(\mathbf{v}\times\mathbf{w}) =
+        \begin{vmatrix} u_1 & u_2 & u_3 \\ v_1 & v_2 & v_3 \\ w_1 & w_2 & w_3 \end{vmatrix} \]
+      </div>
+    </div>
+
+    <div class="box formula">
+      <div class="box-title">Volume paralelepipedum</div>
+      <div class="formula-display">\[ V = \big|\, \mathbf{u}\cdot(\mathbf{v}\times\mathbf{w}) \,\big| \]</div>
+    </div>
+
+    <div class="box def">
+      <div class="box-title">Kasus khusus — Kesebidangan (koplanar)</div>
+      <p>Jika \(\mathbf{u}\cdot(\mathbf{v}\times\mathbf{w}) = 0\), ketiga vektor terletak pada satu bidang
+        datar (koplanar) — volume paralelepipedumnya nol, sehingga tidak membentuk bangun ruang.</p>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 460 260" width="100%">
+        <g stroke="rgba(163,201,230,0.1)" stroke-width="1">
+          <line x1="0" y1="60" x2="460" y2="60"/><line x1="0" y1="100" x2="460" y2="100"/>
+          <line x1="0" y1="140" x2="460" y2="140"/><line x1="0" y1="180" x2="460" y2="180"/>
+          <line x1="80" y1="0" x2="80" y2="260"/><line x1="140" y1="0" x2="140" y2="260"/>
+          <line x1="200" y1="0" x2="200" y2="260"/><line x1="260" y1="0" x2="260" y2="260"/>
+          <line x1="320" y1="0" x2="320" y2="260"/><line x1="380" y1="0" x2="380" y2="260"/>
+        </g>
+        <!-- base parallelogram -->
+        <polygon points="90,210 250,210 300,150 140,150" fill="rgba(111,168,216,0.14)" stroke="#6FA8D8" stroke-width="1.6"/>
+        <!-- vertical edge -->
+        <line x1="90" y1="210" x2="90" y2="70" stroke="#F2A81D" stroke-width="3"/>
+        <polygon points="90,70 82,84 98,84" fill="#F2A81D"/>
+        <!-- top parallelogram -->
+        <polygon points="90,70 250,70 300,10 140,10" fill="rgba(242,168,29,0.10)" stroke="#F2A81D" stroke-width="1.4" stroke-dasharray="5 4"/>
+        <line x1="250" y1="210" x2="250" y2="70" stroke="rgba(238,243,243,0.4)" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <line x1="300" y1="150" x2="300" y2="10" stroke="rgba(238,243,243,0.4)" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <line x1="140" y1="150" x2="140" y2="10" stroke="rgba(238,243,243,0.4)" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <!-- base edges as vectors -->
+        <line x1="90" y1="210" x2="250" y2="210" stroke="#E8542A" stroke-width="3"/>
+        <polygon points="250,210 236,203 236,217" fill="#E8542A"/>
+        <line x1="90" y1="210" x2="140" y2="150" stroke="#6FA8D8" stroke-width="3"/>
+        <polygon points="140,150 126,156 133,163" fill="#6FA8D8"/>
+        <text x="60" y="230" fill="#7C97AE" font-family="IBM Plex Mono, monospace" font-size="12">O</text>
+        <text x="160" y="228" fill="#E8542A" font-family="IBM Plex Mono, monospace" font-size="13" font-style="italic">u</text>
+        <text x="100" y="180" fill="#6FA8D8" font-family="IBM Plex Mono, monospace" font-size="13" font-style="italic">v</text>
+        <text x="60" y="145" fill="#F2A81D" font-family="IBM Plex Mono, monospace" font-size="13" font-style="italic">w</text>
+      </svg>
+      <div class="diagram-cap">Paralelepipedum dibentuk oleh tiga vektor rusuk u, v, w; volumenya \(|\,u\cdot(v\times w)\,|\)</div>
+    </div>
+
+    <div class="box example">
+      <div class="box-title">Contoh — Volume elemen pondasi</div>
+      <p>Tiga rusuk elemen pondasi diwakili \(\mathbf{u}=(2,1,-1)\), \(\mathbf{v}=(-3,4,1)\), dan
+        \(\mathbf{w}=(1,2,2)\). Tentukan volumenya.</p>
+      <div class="steps">
+        <div class="step">Hitung \(\mathbf{v}\times\mathbf{w}\) dulu: komponen-x \(=4(2)-1(2)=6\); komponen-y \(=1(1)-(-3)(2)=7\); komponen-z \(=(-3)(2)-4(1)=-10\). Jadi \(\mathbf{v}\times\mathbf{w}=(6,7,-10)\).</div>
+        <div class="step">\(\mathbf{u}\cdot(\mathbf{v}\times\mathbf{w}) = 2(6)+1(7)+(-1)(-10) = 12+7+10 = 29\).</div>
+        <div class="step">Karena hasilnya positif dan tidak nol, \(V = 29\) satuan volume (dan ketiga vektor tidak koplanar).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4. LATIHAN ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§4</span>
+      <h2 class="display">Latihan Mandiri</h2>
+    </div>
+    <p>Klik tiap soal untuk membuka pembahasannya.</p>
+
+    <div class="practice">
+      <div class="practice-q">
+        <span class="qnum">01</span>
+        <span class="qtext">Diberikan \(\mathbf{u}=(1,-2,2)\) dan \(\mathbf{v}=(2,1,-1)\). Tentukan \(\mathbf{u}\cdot\mathbf{v}\) dan sudut antara keduanya.</span>
+        <span class="toggle">jawaban</span>
+      </div>
+      <div class="practice-a"><div class="practice-a-inner">
+        \(\mathbf{u}\cdot\mathbf{v} = 1(2)+(-2)(1)+2(-1) = 2-2-2=-2\). \(|\mathbf{u}|=3\), \(|\mathbf{v}|=\sqrt{6}\).
+        \(\cos\theta = \dfrac{-2}{3\sqrt{6}} \approx -0{,}272\), sehingga \(\theta \approx \arccos(-0{,}272) \approx 105{,}8^\circ\) (sudut tumpul).
+      </div></div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-q">
+        <span class="qnum">02</span>
+        <span class="qtext">Tentukan luas jajar genjang yang dibentuk oleh \(\mathbf{a}=(2,0,1)\) dan \(\mathbf{b}=(0,3,1)\) — verifikasi ulang hasil Contoh 2 di atas dengan caramu sendiri.</span>
+        <span class="toggle">jawaban</span>
+      </div>
+      <div class="practice-a"><div class="practice-a-inner">
+        \(\mathbf{a}\times\mathbf{b} = (0\cdot1-1\cdot3,\; 1\cdot0-2\cdot1,\; 2\cdot3-0\cdot0)=(-3,-2,6)\).
+        \(|\mathbf{a}\times\mathbf{b}|=\sqrt{9+4+36}=\sqrt{49}=7\). Luas \(=7\) satuan luas.
+      </div></div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-q">
+        <span class="qnum">03</span>
+        <span class="qtext">Tentukan volume paralelepipedum yang dibentuk oleh \(\mathbf{p}=(1,1,1)\), \(\mathbf{q}=(0,1,2)\), \(\mathbf{r}=(2,0,1)\).</span>
+        <span class="toggle">jawaban</span>
+      </div>
+      <div class="practice-a"><div class="practice-a-inner">
+        \(\mathbf{q}\times\mathbf{r}\): komponen-x \(=1(1)-2(0)=1\); komponen-y \(=2(2)-0(1)=4\); komponen-z \(=0(0)-1(2)=-2\).
+        Jadi \(\mathbf{q}\times\mathbf{r}=(1,4,-2)\). \(\mathbf{p}\cdot(\mathbf{q}\times\mathbf{r}) = 1(1)+1(4)+1(-2) = 3\).
+        Volume \(=3\) satuan volume.
+      </div></div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-q">
+        <span class="qnum">04</span>
+        <span class="qtext">Dua batang penyangga memiliki arah \(\mathbf{m}=(1,3,0)\) dan \(\mathbf{n}=(-3,1,0)\). Buktikan kedua batang tersebut tegak lurus.</span>
+        <span class="toggle">jawaban</span>
+      </div>
+      <div class="practice-a"><div class="practice-a-inner">
+        \(\mathbf{m}\cdot\mathbf{n} = 1(-3)+3(1)+0(0) = -3+3+0 = 0\). Karena hasil kali titiknya nol, kedua
+        arah batang tegak lurus (\(\theta = 90^\circ\)).
+      </div></div>
+    </div>
+  </section>
+
+  <div class="pagenav">
+    <a class="prev" href="pertemuan-2.html"><span class="lbl">← Kembali ke</span>Pertemuan 2 · Definisi &amp; Aljabar Vektor</a>
+    <a class="next" href="index.html"><span class="lbl">Selesai →</span>Beranda mata kuliah</a>
+  </div>
+
+  <footer>
+    RPS Matematika I — S1 Teknik Sipil, Fakultas Teknik, Universitas Negeri Surabaya · Disusun 24 Agustus 2026
+  </footer>
+
+</main>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

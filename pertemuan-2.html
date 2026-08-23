@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pertemuan 2 · Definisi &amp; Operasi Aljabar Vektor · Matematika I</title>
+<link rel="stylesheet" href="assets/style.css">
+<script>
+  window.MathJax = { tex: { inlineMath: [['\\(','\\)']], displayMath: [['\\[','\\]']] } };
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.min.js" defer></script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">∑</span>
+      <span>Matematika I<br><small>S1 TEKNIK SIPIL — UNESA</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Beranda</a>
+      <a href="pertemuan-2.html" class="current">Pertemuan 2</a>
+      <a href="pertemuan-3.html">Pertemuan 3</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="title-block">
+    <div class="title-block-grid">
+      <div class="tb-cell"><div class="tb-label">Pertemuan</div><div class="tb-value accent">Minggu ke-2</div></div>
+      <div class="tb-cell"><div class="tb-label">Alokasi Waktu</div><div class="tb-value">3 × 50 menit</div></div>
+      <div class="tb-cell"><div class="tb-label">Metode</div><div class="tb-value">Berbasis masalah &amp; diskusi</div></div>
+      <div class="tb-cell"><div class="tb-label">Bobot Nilai</div><div class="tb-value">2%</div></div>
+    </div>
+  </div>
+
+  <section class="hero" style="padding-top:44px;">
+    <div class="eyebrow">Lembar Materi 02</div>
+    <h1 class="display">Definisi &amp; <em>Operasi Aljabar</em> Vektor</h1>
+    <p class="lede">
+      Sebelum menghitung gaya, momen, atau kemiringan lereng, seorang insinyur sipil perlu bahasa yang
+      tepat untuk besaran yang punya arah. Materi ini membangun definisi vektor, notasinya, relasi antar
+      vektor, dan empat operasi aljabar dasarnya.
+    </p>
+    <div class="week-strip">
+      <span class="week-pill active">2 · Definisi &amp; aljabar</span>
+      <span class="week-pill">3 · Sudut, luas &amp; volume →</span>
+    </div>
+  </section>
+
+  <div class="box def">
+    <div class="box-title">Sub-CPMK</div>
+    <p>Mampu memahami definisi vektor dan relasi serta operasi aljabar vektor, dan mampu menghitung sudut
+      yang dibentuk dua vektor, menghitung luas jajar genjang, serta menghitung volume paralelepipedum.</p>
+  </div>
+
+  <!-- ===================== 1. DEFINISI ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§1</span>
+      <h2 class="display">Skalar vs. Vektor</h2>
+    </div>
+
+    <p>Dalam teknik sipil kita terus-menerus berurusan dengan dua jenis besaran fisis:</p>
+
+    <table class="data">
+      <thead><tr><th>Besaran Skalar</th><th>Besaran Vektor</th></tr></thead>
+      <tbody>
+        <tr><td>Hanya punya <strong>nilai (magnitudo)</strong></td><td>Punya <strong>nilai dan arah</strong></td></tr>
+        <tr><td>Massa, suhu, volume, waktu, panjang</td><td>Gaya, kecepatan, perpindahan, momen, percepatan</td></tr>
+        <tr><td>Dijumlahkan seperti bilangan biasa</td><td>Dijumlahkan mengikuti aturan geometris (jajar genjang)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="box def">
+      <div class="box-title">Definisi — Vektor</div>
+      <p><strong>Vektor</strong> adalah besaran yang memiliki besar (panjang) sekaligus arah, digambarkan
+        sebagai ruas garis berarah (anak panah) dengan titik pangkal dan titik ujung.</p>
+    </div>
+
+    <p>Contoh di lapangan: gaya tarik kabel jembatan gantung memiliki besar (dalam kN) <em>dan</em> arah
+      (sudut terhadap horizontal) — sehingga harus diperlakukan sebagai vektor, bukan sekadar angka.</p>
+  </section>
+
+  <!-- ===================== 2. NOTASI ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§2</span>
+      <h2 class="display">Notasi dan Representasi</h2>
+    </div>
+
+    <p>Vektor biasa ditulis dengan huruf tebal (<strong>v</strong>) atau huruf bertanda panah
+      (\(\vec{v}\)). Vektor dari titik \(A\) ke titik \(B\) ditulis \(\overrightarrow{AB}\).</p>
+
+    <h3 class="sub">Representasi komponen</h3>
+    <p>Di bidang \(\mathbb{R}^2\), vektor dinyatakan sebagai pasangan komponen atau kombinasi vektor
+      satuan basis \(\mathbf{i}=(1,0)\) dan \(\mathbf{j}=(0,1)\):</p>
+    <div class="box formula">
+      <div class="box-title">Komponen di R²</div>
+      <div class="formula-display">\[ \mathbf{v} = (v_1, v_2) = v_1\,\mathbf{i} + v_2\,\mathbf{j} \]</div>
+    </div>
+    <p>Di ruang \(\mathbb{R}^3\), ditambah vektor satuan \(\mathbf{k}=(0,0,1)\) untuk sumbu-z — relevan
+      saat memodelkan elemen struktur tiga dimensi (kolom, balok, pelat):</p>
+    <div class="box formula">
+      <div class="box-title">Komponen di R³</div>
+      <div class="formula-display">\[ \mathbf{v} = (v_1, v_2, v_3) = v_1\,\mathbf{i} + v_2\,\mathbf{j} + v_3\,\mathbf{k} \]</div>
+    </div>
+
+    <h3 class="sub">Vektor posisi &amp; vektor antar titik</h3>
+    <p>Vektor posisi \(\vec{r}\) menghubungkan titik asal \(O\) ke titik \(P(x,y,z)\), sehingga
+      \(\vec{r} = \overrightarrow{OP} = (x,y,z)\). Vektor dari titik \(A(x_A,y_A,z_A)\) ke titik
+      \(B(x_B,y_B,z_B)\) dihitung sebagai selisih posisi ujung dikurangi pangkal:</p>
+    <div class="box formula">
+      <div class="box-title">Vektor AB</div>
+      <div class="formula-display">\[ \overrightarrow{AB} = (x_B - x_A,\; y_B - y_A,\; z_B - z_A) \]</div>
+    </div>
+
+    <h3 class="sub">Besar (panjang) vektor</h3>
+    <div class="box formula">
+      <div class="box-title">Magnitudo</div>
+      <div class="formula-display">\[ |\mathbf{v}| = \sqrt{v_1^2 + v_2^2 + v_3^2} \]</div>
+    </div>
+
+    <h3 class="sub">Vektor satuan (unit vector)</h3>
+    <p>Vektor satuan menyatakan <em>arah murni</em> tanpa peduli besarnya — berguna misalnya untuk
+      menyatakan arah sebuah kabel penggantung:</p>
+    <div class="box formula">
+      <div class="box-title">Unit vector</div>
+      <div class="formula-display">\[ \hat{u} = \dfrac{\mathbf{v}}{|\mathbf{v}|}, \qquad |\hat{u}| = 1 \]</div>
+    </div>
+
+    <div class="diagram">
+      <svg viewBox="0 0 460 260" width="100%">
+        <line x1="0" y1="220" x2="460" y2="220" stroke="rgba(163,201,230,0.35)" stroke-width="1.2"/>
+        <line x1="60" y1="0" x2="60" y2="260" stroke="rgba(163,201,230,0.35)" stroke-width="1.2"/>
+        <!-- grid -->
+        <g stroke="rgba(163,201,230,0.1)" stroke-width="1">
+          <line x1="0" y1="180" x2="460" y2="180"/><line x1="0" y1="140" x2="460" y2="140"/>
+          <line x1="0" y1="100" x2="460" y2="100"/><line x1="0" y1="60" x2="460" y2="60"/>
+          <line x1="110" y1="0" x2="110" y2="260"/><line x1="160" y1="0" x2="160" y2="260"/>
+          <line x1="210" y1="0" x2="210" y2="260"/><line x1="260" y1="0" x2="260" y2="260"/>
+          <line x1="310" y1="0" x2="310" y2="260"/><line x1="360" y1="0" x2="360" y2="260"/>
+          <line x1="410" y1="0" x2="410" y2="260"/>
+        </g>
+        <!-- vector v -->
+        <line x1="60" y1="220" x2="310" y2="60" stroke="#F2A81D" stroke-width="3"/>
+        <polygon points="310,60 296,72 300,82" fill="#F2A81D"/>
+        <text x="290" y="52" fill="#F2A81D" font-family="IBM Plex Mono, monospace" font-size="14" font-style="italic">v</text>
+        <text x="60" y="238" fill="#7C97AE" font-family="IBM Plex Mono, monospace" font-size="12">O (0,0)</text>
+        <text x="316" y="60" fill="#EEF3F3" font-family="IBM Plex Mono, monospace" font-size="12">P(v₁, v₂)</text>
+        <line x1="60" y1="220" x2="310" y2="220" stroke="#6FA8D8" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <line x1="310" y1="220" x2="310" y2="60" stroke="#6FA8D8" stroke-width="1.4" stroke-dasharray="4 3"/>
+        <text x="170" y="235" fill="#6FA8D8" font-family="IBM Plex Mono, monospace" font-size="12">v₁</text>
+        <text x="320" y="145" fill="#6FA8D8" font-family="IBM Plex Mono, monospace" font-size="12">v₂</text>
+      </svg>
+      <div class="diagram-cap">Vektor v = (v₁, v₂) sebagai ruas garis berarah dari titik asal O</div>
+    </div>
+  </section>
+
+  <!-- ===================== 3. RELASI ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§3</span>
+      <h2 class="display">Relasi Antar Vektor</h2>
+    </div>
+
+    <table class="data">
+      <thead><tr><th>Relasi</th><th>Syarat</th><th>Makna</th></tr></thead>
+      <tbody>
+        <tr><td>Vektor sama</td><td>\(\mathbf{u} = \mathbf{v}\)</td><td>Besar sama <em>dan</em> arah sama (posisi pangkal boleh berbeda — vektor bersifat bebas)</td></tr>
+        <tr><td>Vektor negatif</td><td>\(-\mathbf{v}\)</td><td>Besar sama, arah tepat berlawanan</td></tr>
+        <tr><td>Vektor sejajar (kolinear)</td><td>\(\mathbf{u} = k\mathbf{v},\ k \neq 0\)</td><td>\(k>0\): searah &nbsp;·&nbsp; \(k<0\): berlawanan arah</td></tr>
+        <tr><td>Vektor nol</td><td>\(\mathbf{0} = (0,0,0)\)</td><td>Besar nol, arah tak terdefinisi</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===================== 4. OPERASI ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§4</span>
+      <h2 class="display">Operasi Aljabar Vektor</h2>
+    </div>
+
+    <h3 class="sub">4.1 Penjumlahan vektor</h3>
+    <p>Secara geometris, penjumlahan mengikuti <strong>aturan segitiga</strong> (ujung u disambung ke
+      pangkal v) atau <strong>aturan jajar genjang</strong> (u dan v sepangkal, resultan adalah
+      diagonalnya). Secara komponen, dijumlahkan per elemen:</p>
+    <div class="box formula">
+      <div class="box-title">Penjumlahan komponen</div>
+      <div class="formula-display">\[ \mathbf{u} + \mathbf{v} = (u_1+v_1,\ u_2+v_2,\ u_3+v_3) \]</div>
+    </div>
+
+    <div class="widget">
+      <div class="widget-head">
+        <span class="widget-title">Widget · Aturan Jajar Genjang</span>
+        <span class="widget-hint">seret ujung u (oranye) atau v (biru)</span>
+      </div>
+      <div class="widget-body">
+        <div id="w-add"></div>
+        <div class="readout">
+          <div><span class="k">u = (x, y)</span><span class="v">(<span id="add-ux"></span>, <span id="add-uy"></span>)</span></div>
+          <div><span class="k">v = (x, y)</span><span class="v">(<span id="add-vx"></span>, <span id="add-vy"></span>)</span></div>
+          <div><span class="k">u + v</span><span class="v">(<span id="add-rx"></span>, <span id="add-ry"></span>)</span></div>
+          <div><span class="k">|u + v|</span><span class="v" id="add-rmag"></span></div>
+        </div>
+      </div>
+    </div>
+
+    <p><strong>Sifat-sifat penjumlahan</strong> (berlaku untuk semua vektor u, v, w):</p>
+    <ul style="color:var(--ink-dim)">
+      <li>Komutatif: \(\mathbf{u}+\mathbf{v} = \mathbf{v}+\mathbf{u}\)</li>
+      <li>Asosiatif: \((\mathbf{u}+\mathbf{v})+\mathbf{w} = \mathbf{u}+(\mathbf{v}+\mathbf{w})\)</li>
+      <li>Identitas: \(\mathbf{u}+\mathbf{0} = \mathbf{u}\)</li>
+      <li>Invers: \(\mathbf{u}+(-\mathbf{u}) = \mathbf{0}\)</li>
+    </ul>
+
+    <h3 class="sub">4.2 Pengurangan vektor</h3>
+    <p>Pengurangan didefinisikan sebagai penjumlahan dengan vektor negatif:</p>
+    <div class="box formula">
+      <div class="box-title">Pengurangan</div>
+      <div class="formula-display">\[ \mathbf{u} - \mathbf{v} = \mathbf{u} + (-\mathbf{v}) = (u_1-v_1,\ u_2-v_2,\ u_3-v_3) \]</div>
+    </div>
+    <p>Secara geometris (bila u dan v sepangkal), \(\mathbf{u}-\mathbf{v}\) adalah vektor dari ujung v
+      menuju ujung u.</p>
+
+    <h3 class="sub">4.3 Perkalian skalar dengan vektor</h3>
+    <div class="box formula">
+      <div class="box-title">Perkalian skalar</div>
+      <div class="formula-display">\[ k\mathbf{v} = (kv_1,\ kv_2,\ kv_3) \]</div>
+    </div>
+    <p>Skalar \(k\) mengubah panjang vektor menjadi \(|k|\) kali semula; jika \(k<0\), arah vektor
+      berbalik. Geser slider untuk melihat efeknya:</p>
+
+    <div class="widget">
+      <div class="widget-head">
+        <span class="widget-title">Widget · Perkalian Skalar k·v</span>
+        <span class="widget-hint">geser k</span>
+      </div>
+      <div class="widget-body">
+        <div id="w-scalar"></div>
+        <div>
+          <div class="slider-row">
+            <label><span>k</span><span id="scalar-k-val">1.0</span></label>
+            <input type="range" id="scalar-k" min="-2" max="2" step="0.1" value="1">
+          </div>
+          <div class="readout">
+            <div><span class="k">v tetap</span><span class="v">(2.0, 1.5)</span></div>
+            <div><span class="k">k·v = (x, y)</span><span class="v">(<span id="scalar-x"></span>, <span id="scalar-y"></span>)</span></div>
+            <div><span class="k">|k·v|</span><span class="v" id="scalar-mag"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p><strong>Sifat distributif:</strong></p>
+    <ul style="color:var(--ink-dim)">
+      <li>\(k(\mathbf{u}+\mathbf{v}) = k\mathbf{u} + k\mathbf{v}\)</li>
+      <li>\((k+m)\mathbf{v} = k\mathbf{v} + m\mathbf{v}\)</li>
+      <li>\(k(m\mathbf{v}) = (km)\mathbf{v}\)</li>
+    </ul>
+  </section>
+
+  <!-- ===================== 5. CONTOH SOAL ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§5</span>
+      <h2 class="display">Contoh Soal Terapan</h2>
+    </div>
+
+    <div class="box example">
+      <div class="box-title">Contoh 1 — Resultan gaya pada simpul rangka</div>
+      <p>Dua batang rangka baja menarik sebuah titik simpul dengan gaya \(\mathbf{F_1}=(300,400)\) N dan
+        \(\mathbf{F_2}=(-100,200)\) N. Tentukan resultan gaya \(\mathbf{R}\) dan besarnya.</p>
+      <div class="steps">
+        <div class="step">Jumlahkan komponen: \(\mathbf{R} = \mathbf{F_1}+\mathbf{F_2} = (300-100,\ 400+200) = (200, 600)\) N.</div>
+        <div class="step">Hitung besar resultan: \(|\mathbf{R}| = \sqrt{200^2+600^2} = \sqrt{400000} = 200\sqrt{10} \approx 632{,}46\) N.</div>
+      </div>
+    </div>
+
+    <div class="box example">
+      <div class="box-title">Contoh 2 — Vektor posisi titik pada elemen struktur</div>
+      <p>Titik \(A(2,-1,3)\) dan titik \(B(5,3,-2)\) adalah dua ujung sebuah batang pengaku. Tentukan
+        vektor \(\overrightarrow{AB}\) dan panjang batang tersebut.</p>
+      <div class="steps">
+        <div class="step">\(\overrightarrow{AB} = (5-2,\ 3-(-1),\ -2-3) = (3, 4, -5)\).</div>
+        <div class="step">\(|\overrightarrow{AB}| = \sqrt{3^2+4^2+(-5)^2} = \sqrt{50} = 5\sqrt{2} \approx 7{,}07\) satuan panjang.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6. LATIHAN ===================== -->
+  <section>
+    <div class="section-head">
+      <span class="section-num">§6</span>
+      <h2 class="display">Latihan Mandiri</h2>
+    </div>
+    <p>Klik tiap soal untuk membuka pembahasannya.</p>
+
+    <div class="practice">
+      <div class="practice-q">
+        <span class="qnum">01</span>
+        <span class="qtext">Jika \(\mathbf{u}=(3,-2,1)\) dan \(\mathbf{v}=(-1,4,2)\), tentukan \(2\mathbf{u}-3\mathbf{v}\).</span>
+        <span class="toggle">jawaban</span>
+      </div>
+      <div class="practice-a"><div class="practice-a-inner">
+        \(2\mathbf{u}=(6,-4,2)\) dan \(3\mathbf{v}=(-3,12,6)\), sehingga
+        \(2\mathbf{u}-3\mathbf{v} = (6-(-3),\ -4-12,\ 2-6) = (9,\ -16,\ -4)\).
+      </div></div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-q">
+        <span class="qnum">02</span>
+        <span class="qtext">Tunjukkan bahwa \(\mathbf{u}=(2,4,-6)\) dan \(\mathbf{v}=(-1,-2,3)\) sejajar. Searah atau berlawanan arah?</span>
+        <span class="toggle">jawaban</span>
+      </div>
+      <div class="practice-a"><div class="practice-a-inner">
+        Perhatikan \(-2\mathbf{v} = (2,4,-6) = \mathbf{u}\), jadi \(\mathbf{u}=k\mathbf{v}\) dengan \(k=-2\).
+        Karena kedua vektor merupakan kelipatan skalar satu sama lain, keduanya sejajar (kolinear); karena
+        \(k=-2<0\), arahnya <strong>berlawanan</strong>.
+      </div></div>
+    </div>
+
+    <div class="practice">
+      <div class="practice-q">
+        <span class="qnum">03</span>
+        <span class="qtext">Sebuah kabel penggantung memiliki vektor arah \(\mathbf{w}=(6,-8)\) (satuan meter). Tentukan vektor satuannya.</span>
+        <span class="toggle">jawaban</span>
+      </div>
+      <div class="practice-a"><div class="practice-a-inner">
+        \(|\mathbf{w}| = \sqrt{6^2+(-8)^2}=\sqrt{100}=10\). Maka
+        \(\hat{u} = \dfrac{\mathbf{w}}{|\mathbf{w}|} = (0{,}6,\ -0{,}8)\), dan dapat diperiksa
+        \(|\hat u| = \sqrt{0.6^2+0.8^2}=1\).
+      </div></div>
+    </div>
+  </section>
+
+  <div class="pagenav">
+    <a class="prev" href="index.html"><span class="lbl">← Kembali</span>Beranda mata kuliah</a>
+    <a class="next" href="pertemuan-3.html"><span class="lbl">Lanjut ke →</span>Pertemuan 3 · Sudut, Luas &amp; Volume</a>
+  </div>
+
+  <footer>
+    RPS Matematika I — S1 Teknik Sipil, Fakultas Teknik, Universitas Negeri Surabaya · Disusun 24 Agustus 2026
+  </footer>
+
+</main>
+
+<script src="assets/main.js"></script>
+</body>
+</html>

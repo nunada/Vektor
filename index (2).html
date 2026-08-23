@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matematika I · S1 Teknik Sipil · UNESA</title>
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="index.html">
+      <span class="mark">∑</span>
+      <span>Matematika I<br><small>S1 TEKNIK SIPIL — UNESA</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="current">Beranda</a>
+      <a href="pertemuan-2.html">Pertemuan 2</a>
+      <a href="pertemuan-3.html">Pertemuan 3</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div class="title-block">
+    <div class="title-block-grid">
+      <div class="tb-cell"><div class="tb-label">Mata Kuliah</div><div class="tb-value">Matematika I</div></div>
+      <div class="tb-cell"><div class="tb-label">Kode</div><div class="tb-value">2220103039</div></div>
+      <div class="tb-cell"><div class="tb-label">Bobot SKS</div><div class="tb-value">T=3 / P=0 (ECTS 4.77)</div></div>
+      <div class="tb-cell"><div class="tb-label">Semester</div><div class="tb-value">1</div></div>
+      <div class="tb-cell"><div class="tb-label">Program Studi</div><div class="tb-value">S1 Teknik Sipil</div></div>
+      <div class="tb-cell"><div class="tb-label">Fakultas</div><div class="tb-value">Teknik</div></div>
+      <div class="tb-cell"><div class="tb-label">Rumpun MK</div><div class="tb-value">Wajib Program Studi</div></div>
+      <div class="tb-cell"><div class="tb-label">Lembar Materi</div><div class="tb-value accent">Pertemuan 2 &amp; 3</div></div>
+    </div>
+  </div>
+
+  <section class="hero">
+    <div class="eyebrow">Rencana Pembelajaran Semester — Bahan Kajian Vektor</div>
+    <h1 class="display">Vektor: dari <em>gaya di simpul rangka</em> hingga <em>volume paralelepipedum</em>.</h1>
+    <p class="lede">
+      Dua pertemuan ini membangun fondasi aljabar vektor yang dipakai sepanjang studi Teknik Sipil —
+      mulai dari menjumlah gaya-gaya pada sebuah titik simpul, menghitung sudut antar batang, luas bidang,
+      sampai volume elemen struktur. Seret vektornya, lihat resultannya berubah secara langsung.
+    </p>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">§0</span>
+      <h2 class="display">Peta Materi</h2>
+    </div>
+    <div class="card-grid">
+      <a class="card" href="pertemuan-2.html">
+        <div class="card-tag">Minggu ke-2 · Bobot 2%</div>
+        <h3>Definisi &amp; Operasi Aljabar Vektor</h3>
+        <p>Besaran skalar vs vektor, notasi &amp; komponen, relasi antar vektor, penjumlahan-pengurangan,
+          perkalian skalar, serta studi kasus resultan gaya pada rangka batang.</p>
+        <div class="go">Buka materi →</div>
+      </a>
+      <a class="card" href="pertemuan-3.html">
+        <div class="card-tag">Minggu ke-3 · Bobot 2%</div>
+        <h3>Hasil Kali Vektor &amp; Aplikasi Geometris</h3>
+        <p>Hasil kali titik dan sudut antar vektor, hasil kali silang dan luas jajar genjang, hasil kali
+          tripel skalar dan volume paralelepipedum, plus aplikasi momen gaya.</p>
+        <div class="go">Buka materi →</div>
+      </a>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">§1</span>
+      <h2 class="display">Demonstrasi: Resultan Dua Gaya</h2>
+    </div>
+    <p>Bayangkan dua batang menarik sebuah titik simpul rangka baja dengan gaya <strong>u</strong> dan
+      <strong>v</strong>. Seret ujung anak panah oranye (u) dan biru (v) — resultan (merah, u+v) mengikuti
+      aturan jajar genjang secara langsung.</p>
+
+    <div class="widget">
+      <div class="widget-head">
+        <span class="widget-title">Widget · Penjumlahan Vektor</span>
+        <span class="widget-hint">seret ujung u atau v</span>
+      </div>
+      <div class="widget-body">
+        <div id="w-add"></div>
+        <div class="readout">
+          <div><span class="k">u = (x, y)</span><span class="v">(<span id="add-ux"></span>, <span id="add-uy"></span>)</span></div>
+          <div><span class="k">v = (x, y)</span><span class="v">(<span id="add-vx"></span>, <span id="add-vy"></span>)</span></div>
+          <div><span class="k">u + v</span><span class="v">(<span id="add-rx"></span>, <span id="add-ry"></span>)</span></div>
+          <div><span class="k">|u + v|</span><span class="v" id="add-rmag"></span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">§2</span>
+      <h2 class="display">Capaian Pembelajaran Terkait (CPMK)</h2>
+    </div>
+    <div class="cpmk-list">
+      <div class="cpmk-item"><div class="code">CPMK-4</div><p>Mampu menganalisis dan merencanakan pendekatan solusi untuk suatu permasalahan teknis
+        ketekniksipilan yang dihadapi dalam suatu pekerjaan di bidang rekayasa teknik sipil.</p></div>
+      <div class="cpmk-item"><div class="code">CPMK-5</div><p>Mampu mengembangkan diri dan berpikir secara logis dalam menyelesaikan permasalahan yang
+        dihadapi secara profesional di bidang Pendidikan Teknik Bangunan.</p></div>
+    </div>
+    <div class="box def" style="margin-top:20px">
+      <div class="box-title">Sub-CPMK Minggu 2 &amp; 3</div>
+      <p>Mampu memahami definisi vektor dan relasi serta operasi aljabar vektor, serta mampu menghitung
+        sudut yang dibentuk dua vektor, menghitung luas jajar genjang, dan menghitung volume
+        paralelepipedum.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">§3</span>
+      <h2 class="display">Rencana Sesi</h2>
+    </div>
+    <table class="data">
+      <thead>
+        <tr><th>Mg</th><th>Topik</th><th>Bentuk Pembelajaran</th><th>Penilaian</th><th>Bobot</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2</td>
+          <td>Definisi vektor, relasi, dan operasi aljabar vektor</td>
+          <td>Pembelajaran berbasis masalah &amp; diskusi, 3×50 menit</td>
+          <td>Aktivitas partisipatif</td>
+          <td>2%</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Sudut antar vektor, luas jajar genjang, volume paralelepipedum</td>
+          <td>Pembelajaran berbasis masalah &amp; diskusi, 3×50 menit</td>
+          <td>Aktivitas partisipatif &amp; tes</td>
+          <td>2%</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <div class="section-head">
+      <span class="section-num">§4</span>
+      <h2 class="display">Pustaka Utama</h2>
+    </div>
+    <ol style="color:var(--ink-dim); padding-left:20px;">
+      <li>Leithold, L. (1991). <em>Kalkulus dan Ilmu Ukur Analitik</em>, edisi 5. Jakarta: Erlangga.</li>
+      <li>Susskind, L. &amp; Hrabovsky, G. (2013). <em>The Theoretical Minimum</em>. New York: Basic Books.</li>
+      <li>Purcell, E. &amp; Varberg, D. (1992). <em>Kalkulus dan Geometri Analitis</em>. Jakarta: Erlangga.</li>
+      <li>Stroud, K.A. (1986). <em>Matematika untuk Teknik</em> (alih bahasa Erwin Sucipto). Jakarta: Erlangga.</li>
+      <li>Baisuni, M.H. (1986). <em>Kalkulus</em>. Jakarta: Universitas Indonesia.</li>
+    </ol>
+  </section>
+
+  <footer>
+    RPS Matematika I — S1 Teknik Sipil, Fakultas Teknik, Universitas Negeri Surabaya · Disusun 24 Agustus 2026
+  </footer>
+
+</main>
+
+<script src="assets/main.js"></script>
+</body>
+</html>
